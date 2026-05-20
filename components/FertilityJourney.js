@@ -40,7 +40,10 @@ const services = [
 
 export default function FertilityJourney() {
   return (
-    <section className="relative overflow-hidden bg-[#fffaf7] px-4 py-16 sm:px-6 lg:px-8">
+    <section
+      id="ivf-process"
+      className="relative overflow-hidden bg-[#fffaf7] px-4 py-16 sm:px-6 lg:px-8"
+    >
       <div className="absolute left-[-5rem] top-[-4rem] h-56 w-56 rounded-full bg-rose-100 blur-3xl" />
       <div className="absolute bottom-[-6rem] right-[-3rem] h-64 w-64 rounded-full bg-amber-100 blur-3xl" />
 

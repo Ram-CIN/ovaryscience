@@ -1,6 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Autoplay, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { blogs } from "@/lib/blogs";
+
+import "swiper/css";
+import "swiper/css/pagination";
 
 export function BlogCard({ blog }) {
   return (
@@ -60,11 +67,35 @@ export default function Blog({ limit = 8, showViewAll = true }) {
           )}
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          loop={visibleBlogs.length > 3}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          pagination={{ clickable: true }}
+          spaceBetween={24}
+          slidesPerView={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1280: {
+              slidesPerView: 4,
+            },
+          }}
+          className="!pb-12"
+        >
           {visibleBlogs.map((blog) => (
-            <BlogCard key={blog.slug} blog={blog} />
+            <SwiperSlide key={blog.slug} className="h-auto py-2">
+              <BlogCard blog={blog} />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );

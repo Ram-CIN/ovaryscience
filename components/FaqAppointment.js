@@ -33,7 +33,10 @@ const faqCategories = [
 
 export default function FaqAppointment() {
   return (
-    <section className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section
+      id="faq"
+      className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-8"
+    >
       <div className="pointer-events-none absolute left-8 top-28 hidden opacity-60 lg:block">
         <div className="relative h-80 w-40">
           <div className="absolute left-16 top-0 h-52 w-px rotate-[-18deg] bg-[#f7ddd5]" />

@@ -1,5 +1,6 @@
 import Blog from "@/components/Blog";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Blogs | Ovira Science",
@@ -11,6 +12,7 @@ export default function BlogPage() {
     <>
       <Header />
       <Blog showViewAll={false} />
+      <Footer />
     </>
   );
 }

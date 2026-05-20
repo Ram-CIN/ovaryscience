@@ -47,7 +47,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-[#fff3eb] px-4 py-20 sm:px-6 lg:px-8">
+    <section id="patient-testimonial" className="bg-[#fff3eb] px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#e33459]">

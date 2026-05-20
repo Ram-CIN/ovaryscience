@@ -8,6 +8,43 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+const resourceLinks = [
+  { label: "IVF Process", href: "/#ivf-process" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Patient Testimonial", href: "/#patient-testimonial" },
+  { label: "Facts", href: "/#facts" },
+  { label: "Blogs", href: "/blog" },
+];
+
+const aboutLinks = [
+  { label: "Our Story", href: "/our-story" },
+  { label: "Vision Mission", href: "/vision-mission" },
+];
+
+function NavDropdown({ label, links }) {
+  return (
+    <div className="group relative">
+      <button className="flex items-center gap-1 font-semibold text-gray-900 transition hover:text-[#e33459]">
+        {label}
+        <ChevronDown className="h-4 w-4 transition duration-200 group-hover:rotate-180" />
+      </button>
+
+      <div className="invisible absolute left-0 top-full z-50 mt-4 min-w-64 translate-y-2 rounded-2xl border border-[#e6eeee] bg-white p-2 opacity-0 shadow-[0_18px_50px_rgba(15,23,42,0.12)] transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+        <div className="absolute -top-4 left-0 h-4 w-full" />
+        {links.map((link) => (
+          <Link
+            key={link.label}
+            href={link.href}
+            className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#fff1f4] hover:text-[#e33459]"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Header() {
   return (
     <header className="w-full">
@@ -29,9 +66,9 @@ export default function Header() {
 
           {/* Right */}
           <div className="flex items-center gap-5">
-            <p className="hidden text-sm font-semibold text-black md:block">
+            {/* <p className="hidden text-sm font-semibold text-black md:block">
               Dr. Gauri Agarwal
-            </p>
+            </p> */}
 
             
           </div>
@@ -60,30 +97,20 @@ export default function Header() {
 
           {/* MENU */}
           <nav className="hidden items-center gap-8 lg:flex">
-            <Link
-              href="#"
+             <Link
+              href="/#services"
               className="flex items-center gap-1 font-semibold text-gray-900"
             >
-              Resources
+              Services
               <ChevronDown className="h-4 w-4" />
             </Link>
 
-            <Link
-              href="#"
-              className="flex items-center gap-1 font-semibold text-gray-900"
-            >
-              About us
-            </Link>
+            <NavDropdown label="Resources" links={resourceLinks} />
+
+            <NavDropdown label="About us" links={aboutLinks} />
 
             <Link
-              href="#"
-              className="flex items-center gap-1 font-semibold text-gray-900"
-            >
-              Doctors
-            </Link>
-
-            <Link
-              href="#"
+              href="/contact"
               className="flex items-center gap-1 font-semibold text-gray-900"
             >
               Contact us
@@ -91,10 +118,13 @@ export default function Header() {
           </nav>
 
           {/* CTA BUTTON */}
-          <button className="flex items-center gap-2 rounded-full bg-[#e33459] px-6 py-3 text-md font-bold text-white transition hover:bg-[#cf2348]">
+          <Link
+            href="/contact"
+            className="flex items-center gap-2 rounded-full bg-[#e33459] px-6 py-3 text-md font-bold text-white transition hover:bg-[#cf2348]"
+          >
             Book a Visit
             <ArrowRight className="h-5 w-5" />
-          </button>
+          </Link>
         </div>
       </div>
     </header>

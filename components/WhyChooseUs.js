@@ -13,7 +13,10 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section
+      id="our-story"
+      className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-8"
+    >
       <div className="absolute left-0 top-10 hidden h-80 w-40 opacity-70 lg:block">
         <div className="absolute left-8 top-0 h-16 w-8 rotate-[-35deg] rounded-full bg-rose-100" />
         <div className="absolute left-2 top-14 h-16 w-8 rotate-[-45deg] rounded-full bg-rose-100" />
